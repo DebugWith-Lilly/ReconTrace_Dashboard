@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RECONTRACE | 3D Scene Viewer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-page">
+
+        <!-- =========================
+             SIDEBAR
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <h1>RECONTRACE</h1>
+
+                <p>FORENSIC INTELLIGENCE</p>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <!-- Dashboard -->
+                <a href="dashboard.html" class="nav-item">
+
+                    <span class="nav-icon">⌂</span>
+
+                    Dashboard
+
+                </a>
+
+
+                <!-- Cases -->
+                <a href="cases.html" class="nav-item">
+
+                    <span class="nav-icon">▣</span>
+
+                    Cases
+
+                </a>
+
+
+                <!-- 3D Scene Viewer -->
+                <a href="scene-viewer.html" class="nav-item active">
+
+                    <span class="nav-icon">◈</span>
+
+                    3D Scene Viewer
+
+                </a>
+
+
+                <!-- Evidence -->
+                <a href="evidence.html" class="nav-item">
+
+                    <span class="nav-icon">◆</span>
+
+                    Evidence
+
+                </a>
+
+
+                <!-- Reports -->
+                <a href="reports.html" class="nav-item">
+
+                    <span class="nav-icon">▤</span>
+
+                    Reports
+
+                </a>
+
+
+                <!-- Map -->
+                <a href="map.html" class="nav-item">
+
+                    <span class="nav-icon">◎</span>
+
+                    Map
+
+                </a>
+
+
+                <!-- Activity -->
+                <a href="activity.html" class="nav-item">
+
+                    <span class="nav-icon">◷</span>
+
+                    Activity
+
+                </a>
+
+            </nav>
+
+
+            <!-- SIDEBAR BOTTOM -->
+
+            <div class="sidebar-bottom">
+
+                <!-- Settings -->
+                <a href="settings.html" class="nav-item">
+
+                    <span class="nav-icon">⚙</span>
+
+                    Settings
+
+                </a>
+
+
+                <!-- Sign Out -->
+                <a href="index.html" class="nav-item logout">
+
+                    <span class="nav-icon">↪</span>
+
+                    Sign Out
+
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+        ========================== -->
+
+        <main class="dashboard-main">
+
+
+            <!-- =========================
+                 HEADER
+            ========================== -->
+
+            <header class="dashboard-header">
+
+                <div>
+
+                    <p class="page-label">
+                        FORENSIC RECONSTRUCTION
+                    </p>
+
+                    <h2>
+                        3D Scene Viewer
+                    </h2>
+
+                    <p class="header-subtitle">
+                        Explore reconstructed crime scenes and inspect detected evidence.
+                    </p>
+
+                </div>
+
+
+                <div class="header-actions">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            placeholder="Search cases, evidence..."
+                        >
+
+                    </div>
+
+
+                    <button
+                        class="notification-btn"
+                        type="button"
+                        title="Notifications"
+                    >
+                        ♧
+                    </button>
+
+
+                    <div class="profile-circle">
+                        I
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- =========================
+                 ACTIVE CASE BAR
+            ========================== -->
+
+            <section class="viewer-toolbar">
+
+                <div class="viewer-case">
+
+                    <div>
+
+                        <p class="section-label">
+                            ACTIVE CASE
+                        </p>
+
+                        <h3>
+                            CASE-2026-0024
+                        </h3>
+
+                        <span>
+                            Warehouse Break-In · Johannesburg
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="viewer-status">
+
+                    <span class="status-dot"></span>
+
+                    Reconstruction Processed
+
+                </div>
+
+            </section>
+
+
+            <!-- =========================
+                 SCENE VIEWER
+            ========================== -->
+
+            <section class="scene-viewer-layout">
+
+
+                <!-- =========================
+                     3D VIEW
+                ========================== -->
+
+                <div class="scene-viewer-card">
+
+
+                    <!-- VIEWER HEADER -->
+
+                    <div class="scene-viewer-top">
+
+                        <div>
+
+                            <span class="viewer-label">
+                                3D RECONSTRUCTION
+                            </span>
+
+                        </div>
+
+
+                        <div class="viewer-tools">
+
+                            <button
+                                type="button"
+                                title="Reset View"
+                            >
+                                ↻
+                            </button>
+
+                            <button
+                                type="button"
+                                title="Measure"
+                            >
+                                ⌖
+                            </button>
+
+                            <button
+                                type="button"
+                                title="Evidence"
+                            >
+                                ◈
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         MOCK 3D SCENE
+                    ========================== -->
+
+                    <div class="scene-canvas">
+
+                        <div class="scene-grid"></div>
+
+
+                        <!-- ROOM -->
+
+                        <div class="mock-room">
+
+                            <!-- BACK WALL -->
+
+                            <div class="room-back-wall"></div>
+
+
+                            <!-- LEFT WALL -->
+
+                            <div class="room-left-wall"></div>
+
+
+                            <!-- FLOOR -->
+
+                            <div class="room-floor"></div>
+
+
+                            <!-- TABLE -->
+
+                            <div class="mock-table">
+
+                                <div class="table-top"></div>
+
+                                <div class="table-leg left"></div>
+
+                                <div class="table-leg right"></div>
+
+                            </div>
+
+
+                            <!-- DOOR -->
+
+                            <div class="mock-door">
+
+                                <div class="door-handle"></div>
+
+                            </div>
+
+
+                            <!-- EVIDENCE MARKER 1 -->
+
+                            <div class="evidence-marker marker-one">
+
+                                <span>
+                                    1
+                                </span>
+
+                            </div>
+
+
+                            <!-- EVIDENCE MARKER 2 -->
+
+                            <div class="evidence-marker marker-two">
+
+                                <span>
+                                    2
+                                </span>
+
+                            </div>
+
+
+                            <!-- EVIDENCE MARKER 3 -->
+
+                            <div class="evidence-marker marker-three">
+
+                                <span>
+                                    3
+                                </span>
+
+                            </div>
+
+
+                            <!-- MEASUREMENTS -->
+
+                            <div class="measurement horizontal">
+
+                                3.8 m
+
+                            </div>
+
+
+                            <div class="measurement vertical">
+
+                                2.4 m
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- =========================
+                             VIEWER OVERLAY
+                        ========================== -->
+
+                        <div class="viewer-overlay">
+
+                            <div class="overlay-left">
+
+                                <span>
+                                    HIGH ACCURACY
+                                </span>
+
+                                <span>
+                                    •
+                                </span>
+
+                                <span>
+                                    16.8M POINTS
+                                </span>
+
+                            </div>
+
+
+                            <div class="overlay-right">
+
+                                <span>
+                                    CAMERA: 01
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- CROSSHAIR -->
+
+                        <div class="viewer-crosshair">
+                            +
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         VIEWER CONTROLS
+                    ========================== -->
+
+                    <div class="scene-controls">
+
+                        <button
+                            class="control-btn"
+                            type="button"
+                            title="Zoom Out"
+                        >
+                            −
+                        </button>
+
+
+                        <div class="zoom-indicator">
+                            100%
+                        </div>
+
+
+                        <button
+                            class="control-btn"
+                            type="button"
+                            title="Zoom In"
+                        >
+                            +
+                        </button>
+
+
+                        <div class="control-divider"></div>
+
+
+                        <button
+                            class="control-btn"
+                            type="button"
+                            title="Rotate"
+                        >
+                            ⟳
+                        </button>
+
+
+                        <button
+                            class="control-btn"
+                            type="button"
+                            title="Fullscreen"
+                        >
+                            ⛶
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =========================
+                     RIGHT INFORMATION PANEL
+                ========================== -->
+
+                <aside class="scene-info-panel">
+
+
+                    <!-- CASE INFORMATION -->
+
+                    <div class="info-card">
+
+                        <div class="info-card-header">
+
+                            <div>
+
+                                <span class="viewer-label">
+                                    CASE INFORMATION
+                                </span>
+
+                                <h3>
+                                    Warehouse Break-In
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="info-list">
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    Location
+                                </span>
+
+                                <strong>
+                                    Johannesburg
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    Captured
+                                </span>
+
+                                <strong>
+                                    18 May 2026
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    Evidence Items
+                                </span>
+
+                                <strong>
+                                    12
+                                </strong>
+
+                            </div>
+
+
+                            <div class="info-row">
+
+                                <span>
+                                    Reconstruction
+                                </span>
+
+                                <strong>
+                                    Processed
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         DETECTED EVIDENCE
+                    ========================== -->
+
+                    <div class="info-card">
+
+                        <div class="info-card-header">
+
+                            <div>
+
+                                <span class="viewer-label">
+                                    DETECTED EVIDENCE
+                                </span>
+
+                                <h3>
+                                    Evidence Markers
+                                </h3>
+
+                            </div>
+
+
+                            <span class="evidence-count">
+                                3
+                            </span>
+
+                        </div>
+
+
+                        <div class="evidence-marker-list">
+
+
+                            <!-- EVIDENCE 1 -->
+
+                            <div class="viewer-evidence-item">
+
+                                <div class="viewer-evidence-number">
+                                    1
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Handgun
+                                    </strong>
+
+                                    <span>
+                                        AI Detection · 96.4%
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- EVIDENCE 2 -->
+
+                            <div class="viewer-evidence-item">
+
+                                <div class="viewer-evidence-number">
+                                    2
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Blood Pattern
+                                    </strong>
+
+                                    <span>
+                                        AI Detection · 91.8%
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- EVIDENCE 3 -->
+
+                            <div class="viewer-evidence-item">
+
+                                <div class="viewer-evidence-number">
+                                    3
+                                </div>
+
+
+                                <div>
+
+                                    <strong>
+                                        Footwear Impression
+                                    </strong>
+
+                                    <span>
+                                        AI Detection · 88.7%
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         MEASUREMENTS
+                    ========================== -->
+
+                    <div class="info-card">
+
+                        <div class="info-card-header">
+
+                            <div>
+
+                                <span class="viewer-label">
+                                    MEASUREMENTS
+                                </span>
+
+                                <h3>
+                                    Scene Dimensions
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="measurement-grid">
+
+
+                            <div>
+
+                                <strong>
+                                    3.8 m
+                                </strong>
+
+                                <span>
+                                    Width
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    2.4 m
+                                </strong>
+
+                                <span>
+                                    Height
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    6.2 m
+                                </strong>
+
+                                <span>
+                                    Depth
+                                </span>
+
+                            </div>
+
+
+                            <div>
+
+                                <strong>
+                                    45.6 m²
+                                </strong>
+
+                                <span>
+                                    Area
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================
+                         ACTION BUTTONS
+                    ========================== -->
+
+                    <div class="viewer-actions">
+
+                        <button
+                            class="viewer-primary-btn"
+                            type="button"
+                        >
+                            Open Full Viewer
+                        </button>
+
+
+                        <button
+                            class="viewer-secondary-btn"
+                            type="button"
+                        >
+                            Generate Report
+                        </button>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- =========================
+                 RECONSTRUCTION INFORMATION
+            ========================== -->
+
+            <section class="viewer-footer-card">
+
+                <div>
+
+                    <span class="viewer-label">
+                        RECONSTRUCTION SOURCE
+                    </span>
+
+                    <p>
+                        Drone footage processed using AI-assisted evidence
+                        detection and photogrammetric reconstruction.
+                    </p>
+
+                </div>
+
+
+                <div class="processing-info">
+
+                    <span>
+                        Processing Quality
+                    </span>
+
+                    <strong>
+                        98.2%
+                    </strong>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cases | RECONTRACE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="dashboard-page">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-mark">R</div>
+
+                <div>
+                    <h1>RECONTRACE</h1>
+                    <span>FORENSIC INTELLIGENCE</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <p class="nav-section-title">MAIN</p>
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">⌂</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="cases.html" class="nav-item active">
+                    <span class="nav-icon">▣</span>
+                    <span>Cases</span>
+                </a>
+
+                <a href="scene-viewer.html" class="nav-item">
+                    <span class="nav-icon">◈</span>
+                    <span>3D Scene Viewer</span>
+                </a>
+
+                <a href="evidence.html" class="nav-item">
+                    <span class="nav-icon">◇</span>
+                    <span>Evidence</span>
+                </a>
+
+                <p class="nav-section-title">ANALYSIS</p>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Reports</span>
+                </a>
+
+                <a href="map.html" class="nav-item">
+                    <span class="nav-icon">⌖</span>
+                    <span>Map</span>
+                </a>
+
+                <a href="activity.html" class="nav-item">
+                    <span class="nav-icon">◷</span>
+                    <span>Activity</span>
+                </a>
+
+                <p class="nav-section-title">SYSTEM</p>
+
+                <a href="settings.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="index.html" class="nav-item sign-out">
+                    <span class="nav-icon">↪</span>
+                    <span>Sign Out</span>
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="dashboard-main">
+
+            <!-- HEADER -->
+
+            <header class="dashboard-header">
+
+                <div class="header-left">
+
+                    <span class="page-label">CASE MANAGEMENT</span>
+
+                    <h2>Cases</h2>
+
+                    <p>
+                        View and manage active and completed investigations.
+                    </p>
+
+                </div>
+
+                <div class="header-right">
+
+                    <div class="header-search">
+                        <span>⌕</span>
+                        <input
+                            type="text"
+                            id="caseSearch"
+                            placeholder="Search cases..."
+                        >
+                    </div>
+
+                    <button class="notification-btn">
+                        ♧
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="profile-circle">
+                        I
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= TOP ACTION ================= -->
+
+            <div class="cases-top-actions">
+
+                <div>
+                    <h3>Investigation Cases</h3>
+                    <p>
+                        Track crime scene investigations and reconstruction progress.
+                    </p>
+                </div>
+
+                <button class="new-case-btn" id="newCaseBtn">
+                    <span>+</span>
+                    New Case
+                </button>
+
+            </div>
+
+
+            <!-- ================= STAT CARDS ================= -->
+
+            <section class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-label">TOTAL CASES</span>
+                        <span class="stat-icon">▣</span>
+                    </div>
+
+                    <div class="stat-number">24</div>
+
+                    <div class="stat-change positive">
+                        +4 this month
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-label">IN PROGRESS</span>
+                        <span class="stat-icon">◷</span>
+                    </div>
+
+                    <div class="stat-number">12</div>
+
+                    <div class="stat-change">
+                        Active investigations
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-label">COMPLETED</span>
+                        <span class="stat-icon">✓</span>
+                    </div>
+
+                    <div class="stat-number">8</div>
+
+                    <div class="stat-change positive">
+                        +2 this month
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-label">NEW THIS MONTH</span>
+                        <span class="stat-icon">+</span>
+                    </div>
+
+                    <div class="stat-number">4</div>
+
+                    <div class="stat-change">
+                        September 2026
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= FILTERS ================= -->
+
+            <section class="cases-section">
+
+                <div class="cases-toolbar">
+
+                    <div class="case-filters">
+
+                        <button
+                            class="case-filter active"
+                            data-filter="all"
+                        >
+                            All Cases
+                        </button>
+
+                        <button
+                            class="case-filter"
+                            data-filter="in-progress"
+                        >
+                            In Progress
+                        </button>
+
+                        <button
+                            class="case-filter"
+                            data-filter="completed"
+                        >
+                            Completed
+                        </button>
+
+                        <button
+                            class="case-filter"
+                            data-filter="archived"
+                        >
+                            Archived
+                        </button>
+
+                    </div>
+
+                    <div class="case-count">
+                        24 cases
+                    </div>
+
+                </div>
+
+
+                <!-- ================= CASE TABLE ================= -->
+
+                <div class="cases-table-card">
+
+                    <div class="table-wrapper">
+
+                        <table class="cases-table">
+
+                            <thead>
+
+                                <tr>
+
+                                    <th>CASE</th>
+
+                                    <th>INVESTIGATION</th>
+
+                                    <th>LOCATION</th>
+
+                                    <th>DATE</th>
+
+                                    <th>EVIDENCE</th>
+
+                                    <th>RECONSTRUCTION</th>
+
+                                    <th>STATUS</th>
+
+                                    <th></th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody id="casesTableBody">
+
+                                <!-- CASE 0024 -->
+
+                                <tr
+                                    data-status="in-progress"
+                                    data-search="CASE-2026-0024 Warehouse Break-In Johannesburg"
+                                >
+
+                                    <td>
+                                        <span class="case-id">
+                                            CASE-2026-0024
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="case-name">
+                                            Warehouse Break-In
+                                        </div>
+
+                                        <span class="case-type">
+                                            Commercial Crime
+                                        </span>
+
+                                    </td>
+
+                                    <td>Johannesburg</td>
+
+                                    <td>18 May 2026</td>
+
+                                    <td>
+                                        <span class="evidence-number">
+                                            12
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="reconstruction-status processed">
+                                            Processed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="case-status in-progress">
+                                            In Progress
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            class="case-view-btn"
+                                            onclick="viewCase('CASE-2026-0024')"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CASE 0023 -->
+
+                                <tr
+                                    data-status="completed"
+                                    data-search="CASE-2026-0023 Homicide Investigation Pretoria"
+                                >
+
+                                    <td>
+                                        <span class="case-id">
+                                            CASE-2026-0023
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="case-name">
+                                            Homicide Investigation
+                                        </div>
+
+                                        <span class="case-type">
+                                            Violent Crime
+                                        </span>
+
+                                    </td>
+
+                                    <td>Pretoria</td>
+
+                                    <td>15 May 2026</td>
+
+                                    <td>
+                                        <span class="evidence-number">
+                                            27
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="reconstruction-status processed">
+                                            Processed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="case-status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            class="case-view-btn"
+                                            onclick="viewCase('CASE-2026-0023')"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CASE 0022 -->
+
+                                <tr
+                                    data-status="in-progress"
+                                    data-search="CASE-2026-0022 Residential Burglary Cape Town"
+                                >
+
+                                    <td>
+                                        <span class="case-id">
+                                            CASE-2026-0022
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="case-name">
+                                            Residential Burglary
+                                        </div>
+
+                                        <span class="case-type">
+                                            Property Crime
+                                        </span>
+
+                                    </td>
+
+                                    <td>Cape Town</td>
+
+                                    <td>12 May 2026</td>
+
+                                    <td>
+                                        <span class="evidence-number">
+                                            18
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="reconstruction-status processing">
+                                            Processing
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="case-status in-progress">
+                                            In Progress
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            class="case-view-btn"
+                                            onclick="viewCase('CASE-2026-0022')"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CASE 0021 -->
+
+                                <tr
+                                    data-status="completed"
+                                    data-search="CASE-2026-0021 Vehicle Crime Scene Durban"
+                                >
+
+                                    <td>
+                                        <span class="case-id">
+                                            CASE-2026-0021
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="case-name">
+                                            Vehicle Crime Scene
+                                        </div>
+
+                                        <span class="case-type">
+                                            Vehicle Crime
+                                        </span>
+
+                                    </td>
+
+                                    <td>Durban</td>
+
+                                    <td>08 May 2026</td>
+
+                                    <td>
+                                        <span class="evidence-number">
+                                            9
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="reconstruction-status processed">
+                                            Processed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="case-status completed">
+                                            Completed
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            class="case-view-btn"
+                                            onclick="viewCase('CASE-2026-0021')"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+
+                                <!-- CASE 0020 -->
+
+                                <tr
+                                    data-status="in-progress"
+                                    data-search="CASE-2026-0020 Assault Investigation Soweto"
+                                >
+
+                                    <td>
+                                        <span class="case-id">
+                                            CASE-2026-0020
+                                        </span>
+                                    </td>
+
+                                    <td>
+
+                                        <div class="case-name">
+                                            Assault Investigation
+                                        </div>
+
+                                        <span class="case-type">
+                                            Violent Crime
+                                        </span>
+
+                                    </td>
+
+                                    <td>Soweto</td>
+
+                                    <td>05 May 2026</td>
+
+                                    <td>
+                                        <span class="evidence-number">
+                                            15
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="reconstruction-status processing">
+                                            Processing
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <span class="case-status in-progress">
+                                            In Progress
+                                        </span>
+                                    </td>
+
+                                    <td>
+                                        <button
+                                            class="case-view-btn"
+                                            onclick="viewCase('CASE-2026-0020')"
+                                        >
+                                            View
+                                        </button>
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="js/cases.js"></script>
+
+</body>
+</html>

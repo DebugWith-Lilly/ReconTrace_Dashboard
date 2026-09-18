@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RECONTRACE | Create Account</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <!-- LEFT SIDE -->
+        <div class="login-left">
+
+            <div class="brand">
+                <h1>RECONTRACE</h1>
+                <p>AI-Powered Crime Scene Reconstruction</p>
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="login-right">
+
+            <div class="login-card">
+
+                <h2>Create Account</h2>
+
+                <p class="login-subtitle">
+                    Create your investigator account to access RECONTRACE.
+                </p>
+
+                <form id="signupForm">
+
+                    <!-- Full Name -->
+                    <div class="input-group">
+                        <label for="fullname">Full Name</label>
+
+                        <input
+                            type="text"
+                            id="fullname"
+                            placeholder="Enter your full name"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="signup-email">Email</label>
+
+                        <input
+                            type="email"
+                            id="signup-email"
+                            placeholder="investigator@recontrace.co.za"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Role -->
+                    <div class="input-group">
+                        <label for="role">Role</label>
+
+                        <select id="role" required>
+                            <option value="">Select your role</option>
+                            <option value="Forensic Investigator">
+                                Forensic Investigator
+                            </option>
+
+                            <option value="Forensic Lead">
+                                Forensic Lead
+                            </option>
+
+                            <option value="Crime Scene Analyst">
+                                Crime Scene Analyst
+                            </option>
+
+                            <option value="Administrator">
+                                Administrator
+                            </option>
+                        </select>
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="input-group">
+                        <label for="signup-password">Password</label>
+
+                        <input
+                            type="password"
+                            id="signup-password"
+                            placeholder="Create a password"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Confirm Password -->
+                    <div class="input-group">
+                        <label for="confirm-password">Confirm Password</label>
+
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            placeholder="Confirm your password"
+                            required
+                        >
+                    </div>
+
+
+                    <!-- Create Account -->
+                    <button type="submit" class="sign-in-btn">
+                        Create Account
+                    </button>
+
+                </form>
+
+
+                <!-- Login Link -->
+                <p class="account-link">
+                    Already have an account?
+                    <a href="index.html">Sign In</a>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <script src="js/signup.js"></script>
+
+</body>
+</html>

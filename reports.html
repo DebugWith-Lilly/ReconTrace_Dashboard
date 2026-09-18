@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Reports | RECONTRACE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+<div class="dashboard-page">
+
+
+    <!-- =====================================================
+         SIDEBAR
+         ===================================================== -->
+
+    <aside class="sidebar">
+
+
+        <!-- BRAND -->
+
+        <div class="sidebar-brand">
+
+            <h1>
+                RECONTRACE
+            </h1>
+
+            <p>
+                FORENSIC INTELLIGENCE
+            </p>
+
+        </div>
+
+
+        <!-- NAVIGATION -->
+
+        <nav class="sidebar-nav">
+
+
+            <p class="nav-section-title">
+                MAIN
+            </p>
+
+
+            <!-- DASHBOARD -->
+
+            <a
+                href="dashboard.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ⌂
+                </span>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- CASES -->
+
+            <a
+                href="cases.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ▣
+                </span>
+
+                Cases
+
+            </a>
+
+
+            <!-- 3D SCENE VIEWER -->
+
+            <a
+                href="scene-viewer.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◈
+                </span>
+
+                3D Scene Viewer
+
+            </a>
+
+
+            <!-- EVIDENCE -->
+
+            <a
+                href="evidence.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◆
+                </span>
+
+                Evidence
+
+            </a>
+
+
+            <!-- ANALYSIS -->
+
+            <p class="nav-section-title">
+                ANALYSIS
+            </p>
+
+
+            <!-- REPORTS -->
+
+            <a
+                href="reports.html"
+                class="nav-item active"
+            >
+
+                <span class="nav-icon">
+                    ▤
+                </span>
+
+                Reports
+
+            </a>
+
+
+            <!-- MAP -->
+
+            <a
+                href="map.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◎
+                </span>
+
+                Map
+
+            </a>
+
+
+            <!-- ACTIVITY -->
+
+            <a
+                href="activity.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ◷
+                </span>
+
+                Activity
+
+            </a>
+
+
+            <!-- SYSTEM -->
+
+            <p class="nav-section-title">
+                SYSTEM
+            </p>
+
+
+            <!-- SETTINGS -->
+
+            <a
+                href="settings.html"
+                class="nav-item"
+            >
+
+                <span class="nav-icon">
+                    ⚙
+                </span>
+
+                Settings
+
+            </a>
+
+
+        </nav>
+
+
+        <!-- SIDEBAR BOTTOM -->
+
+        <div class="sidebar-bottom">
+
+
+            <!-- SIGN OUT -->
+
+            <a
+                href="index.html"
+                class="nav-item logout"
+            >
+
+                <span class="nav-icon">
+                    ↪
+                </span>
+
+                Sign Out
+
+            </a>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+         ===================================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =====================================================
+             HEADER
+             ===================================================== -->
+
+        <header class="dashboard-header">
+
+
+            <div>
+
+                <p class="page-label">
+                    REPORTS & DOCUMENTATION
+                </p>
+
+                <h2>
+                    Reports
+                </h2>
+
+                <p class="header-subtitle">
+                    Generate, review and manage forensic investigation reports.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+
+                <!-- SEARCH -->
+
+                <div class="search-box">
+
+                    <span>
+                        ⌕
+                    </span>
+
+                    <input
+                        type="text"
+                        id="reportSearch"
+                        placeholder="Search reports..."
+                    >
+
+                </div>
+
+
+                <!-- NOTIFICATIONS -->
+
+                <button
+                    class="notification-btn"
+                    type="button"
+                    title="Notifications"
+                >
+
+                    ♧
+
+                </button>
+
+
+                <!-- PROFILE -->
+
+                <div class="profile-circle">
+                    I
+                </div>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- =====================================================
+             PAGE INTRO
+             ===================================================== -->
+
+        <section class="reports-intro">
+
+
+            <div>
+
+                <p class="card-label">
+                    DOCUMENTATION
+                </p>
+
+                <h3>
+                    Investigation Reports
+                </h3>
+
+                <p>
+                    Review generated reports and export investigation documentation.
+                </p>
+
+            </div>
+
+
+            <button
+                class="generate-report-btn"
+                type="button"
+                id="generateReportBtn"
+            >
+
+                <span>
+                    +
+                </span>
+
+                Generate Report
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORT STATISTICS
+             ===================================================== -->
+
+        <section class="report-stats">
+
+
+            <!-- TOTAL -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-top">
+
+                    <span>
+                        TOTAL REPORTS
+                    </span>
+
+                    <span>
+                        ▤
+                    </span>
+
+                </div>
+
+                <strong>
+                    28
+                </strong>
+
+                <p>
+                    +6 this month
+                </p>
+
+            </div>
+
+
+
+            <!-- GENERATED -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-top">
+
+                    <span>
+                        GENERATED THIS MONTH
+                    </span>
+
+                    <span>
+                        +
+                    </span>
+
+                </div>
+
+                <strong>
+                    6
+                </strong>
+
+                <p>
+                    September 2026
+                </p>
+
+            </div>
+
+
+
+            <!-- PENDING -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-top">
+
+                    <span>
+                        PENDING
+                    </span>
+
+                    <span>
+                        ◷
+                    </span>
+
+                </div>
+
+                <strong>
+                    3
+                </strong>
+
+                <p>
+                    Awaiting generation
+                </p>
+
+            </div>
+
+
+
+            <!-- EXPORTED -->
+
+            <div class="report-stat-card">
+
+                <div class="report-stat-top">
+
+                    <span>
+                        EXPORTED
+                    </span>
+
+                    <span>
+                        ↓
+                    </span>
+
+                </div>
+
+                <strong>
+                    19
+                </strong>
+
+                <p>
+                    Secure exports
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             REPORTS TABLE
+             ===================================================== -->
+
+        <section class="reports-section">
+
+
+            <!-- TOOLBAR -->
+
+            <div class="reports-toolbar">
+
+
+                <div class="report-filters">
+
+
+                    <button
+                        class="report-filter active"
+                        data-filter="all"
+                    >
+                        All Reports
+                    </button>
+
+
+                    <button
+                        class="report-filter"
+                        data-filter="generated"
+                    >
+                        Generated
+                    </button>
+
+
+                    <button
+                        class="report-filter"
+                        data-filter="pending"
+                    >
+                        Pending
+                    </button>
+
+
+                    <button
+                        class="report-filter"
+                        data-filter="exported"
+                    >
+                        Exported
+                    </button>
+
+
+                </div>
+
+
+                <span class="report-count">
+                    28 reports
+                </span>
+
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="reports-table-card">
+
+
+                <div class="table-wrapper">
+
+
+                    <table class="reports-table">
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    REPORT
+                                </th>
+
+                                <th>
+                                    CASE
+                                </th>
+
+                                <th>
+                                    REPORT TYPE
+                                </th>
+
+                                <th>
+                                    GENERATED
+                                </th>
+
+                                <th>
+                                    INVESTIGATOR
+                                </th>
+
+                                <th>
+                                    STATUS
+                                </th>
+
+                                <th>
+                                    ACTIONS
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="reportsTableBody">
+
+
+                            <!-- REPORT 01 -->
+
+                            <tr
+                                data-status="generated"
+                                data-search="RPT-2026-0028 CASE-2026-0024 Warehouse Break-In Reconstruction Report Investigator"
+                            >
+
+                                <td>
+
+                                    <span class="report-id">
+                                        RPT-2026-0028
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="report-case">
+                                        CASE-2026-0024
+                                    </strong>
+
+                                    <span class="report-case-name">
+                                        Warehouse Break-In
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    Reconstruction Report
+                                </td>
+
+
+                                <td>
+                                    18 May 2026
+                                </td>
+
+
+                                <td>
+                                    Investigator
+                                </td>
+
+
+                                <td>
+
+                                    <span class="report-status generated">
+                                        Generated
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="report-actions">
+
+                                        <button
+                                            class="report-view-btn"
+                                            type="button"
+                                        >
+                                            View
+                                        </button>
+
+                                        <button
+                                            class="report-download-btn"
+                                            type="button"
+                                        >
+                                            ↓
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- REPORT 02 -->
+
+                            <tr
+                                data-status="exported"
+                                data-search="RPT-2026-0027 CASE-2026-0023 Homicide Investigation Evidence Summary Investigator"
+                            >
+
+                                <td>
+
+                                    <span class="report-id">
+                                        RPT-2026-0027
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="report-case">
+                                        CASE-2026-0023
+                                    </strong>
+
+                                    <span class="report-case-name">
+                                        Homicide Investigation
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    Evidence Summary
+                                </td>
+
+
+                                <td>
+                                    16 May 2026
+                                </td>
+
+
+                                <td>
+                                    Investigator
+                                </td>
+
+
+                                <td>
+
+                                    <span class="report-status exported">
+                                        Exported
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="report-actions">
+
+                                        <button
+                                            class="report-view-btn"
+                                            type="button"
+                                        >
+                                            View
+                                        </button>
+
+                                        <button
+                                            class="report-download-btn"
+                                            type="button"
+                                        >
+                                            ↓
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- REPORT 03 -->
+
+                            <tr
+                                data-status="pending"
+                                data-search="RPT-2026-0026 CASE-2026-0022 Residential Burglary Crime Scene Report Investigator"
+                            >
+
+                                <td>
+
+                                    <span class="report-id">
+                                        RPT-2026-0026
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="report-case">
+                                        CASE-2026-0022
+                                    </strong>
+
+                                    <span class="report-case-name">
+                                        Residential Burglary
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    Crime Scene Report
+                                </td>
+
+
+                                <td>
+                                    —
+                                </td>
+
+
+                                <td>
+                                    Investigator
+                                </td>
+
+
+                                <td>
+
+                                    <span class="report-status pending">
+                                        Pending
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="report-actions">
+
+                                        <button
+                                            class="report-view-btn"
+                                            type="button"
+                                        >
+                                            View
+                                        </button>
+
+                                        <button
+                                            class="report-download-btn disabled"
+                                            type="button"
+                                            disabled
+                                        >
+                                            ↓
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- REPORT 04 -->
+
+                            <tr
+                                data-status="generated"
+                                data-search="RPT-2026-0025 CASE-2026-0021 Vehicle Crime Scene Reconstruction Report Investigator"
+                            >
+
+                                <td>
+
+                                    <span class="report-id">
+                                        RPT-2026-0025
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="report-case">
+                                        CASE-2026-0021
+                                    </strong>
+
+                                    <span class="report-case-name">
+                                        Vehicle Crime Scene
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    Reconstruction Report
+                                </td>
+
+
+                                <td>
+                                    10 May 2026
+                                </td>
+
+
+                                <td>
+                                    Investigator
+                                </td>
+
+
+                                <td>
+
+                                    <span class="report-status generated">
+                                        Generated
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="report-actions">
+
+                                        <button
+                                            class="report-view-btn"
+                                            type="button"
+                                        >
+                                            View
+                                        </button>
+
+                                        <button
+                                            class="report-download-btn"
+                                            type="button"
+                                        >
+                                            ↓
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+
+                            <!-- REPORT 05 -->
+
+                            <tr
+                                data-status="exported"
+                                data-search="RPT-2026-0024 CASE-2026-0020 Assault Investigation Evidence Summary Investigator"
+                            >
+
+                                <td>
+
+                                    <span class="report-id">
+                                        RPT-2026-0024
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <strong class="report-case">
+                                        CASE-2026-0020
+                                    </strong>
+
+                                    <span class="report-case-name">
+                                        Assault Investigation
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+                                    Evidence Summary
+                                </td>
+
+
+                                <td>
+                                    07 May 2026
+                                </td>
+
+
+                                <td>
+                                    Investigator
+                                </td>
+
+
+                                <td>
+
+                                    <span class="report-status exported">
+                                        Exported
+                                    </span>
+
+                                </td>
+
+
+                                <td>
+
+                                    <div class="report-actions">
+
+                                        <button
+                                            class="report-view-btn"
+                                            type="button"
+                                        >
+                                            View
+                                        </button>
+
+                                        <button
+                                            class="report-download-btn"
+                                            type="button"
+                                        >
+                                            ↓
+                                        </button>
+
+                                    </div>
+
+                                </td>
+
+                            </tr>
+
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+<script src="js/reports.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Activity | RECONTRACE</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/activity.css">
+</head>
+
+<body>
+
+<div class="dashboard-page">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <h1>RECONTRACE</h1>
+            <p>FORENSIC INTELLIGENCE</p>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="cases.html" class="nav-item">
+                <span class="nav-icon">▣</span>
+                <span>Cases</span>
+            </a>
+
+            <a href="scene-viewer.html" class="nav-item">
+                <span class="nav-icon">◈</span>
+                <span>3D Scene Viewer</span>
+            </a>
+
+            <a href="evidence.html" class="nav-item">
+                <span class="nav-icon">◇</span>
+                <span>Evidence</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="map.html" class="nav-item">
+                <span class="nav-icon">⌖</span>
+                <span>Map</span>
+            </a>
+
+            <a href="activity.html" class="nav-item active">
+                <span class="nav-icon">◷</span>
+                <span>Activity</span>
+            </a>
+
+            <a href="settings.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="index.html" class="nav-item sign-out">
+                <span class="nav-icon">↪</span>
+                <span>Sign Out</span>
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="dashboard-main">
+
+        <!-- HEADER -->
+        <header class="dashboard-header">
+
+            <div>
+                <span class="page-eyebrow">SYSTEM MONITORING</span>
+
+                <h2>Activity</h2>
+
+                <p>
+                    Monitor investigation activity and system events across RECONTRACE.
+                </p>
+            </div>
+
+            <div class="header-actions">
+
+                <div class="header-search">
+                    <span>⌕</span>
+                    <input
+                        type="text"
+                        id="activitySearch"
+                        placeholder="Search activity..."
+                    >
+                </div>
+
+                <button class="notification-btn" title="Notifications">
+                    ♢
+                </button>
+
+                <div class="profile-circle">
+                    I
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- PAGE CONTENT -->
+        <section class="activity-page-content">
+
+            <!-- TOP SECTION -->
+            <div class="activity-intro">
+
+                <div>
+                    <span class="section-label">INVESTIGATION TIMELINE</span>
+
+                    <h3>Recent Activity</h3>
+
+                    <p>
+                        Track evidence processing, case updates, reconstructions and reports.
+                    </p>
+                </div>
+
+                <button id="clearFiltersBtn" class="clear-filter-btn">
+                    Clear Filters
+                </button>
+
+            </div>
+
+
+            <!-- STATS -->
+            <div class="activity-stats">
+
+                <div class="activity-stat-card">
+                    <span class="activity-stat-label">TODAY</span>
+                    <strong>18</strong>
+                    <small>Events recorded</small>
+                </div>
+
+                <div class="activity-stat-card">
+                    <span class="activity-stat-label">THIS WEEK</span>
+                    <strong>74</strong>
+                    <small>Investigation events</small>
+                </div>
+
+                <div class="activity-stat-card">
+                    <span class="activity-stat-label">AI EVENTS</span>
+                    <strong>41</strong>
+                    <small>Automated detections</small>
+                </div>
+
+                <div class="activity-stat-card">
+                    <span class="activity-stat-label">SYSTEM</span>
+                    <strong>99.8%</strong>
+                    <small>System availability</small>
+                </div>
+
+            </div>
+
+
+            <!-- ACTIVITY CARD -->
+            <div class="activity-card">
+
+                <!-- FILTERS -->
+                <div class="activity-toolbar">
+
+                    <div class="activity-tabs">
+
+                        <button
+                            class="activity-tab active"
+                            data-filter="all">
+                            All Activity
+                        </button>
+
+                        <button
+                            class="activity-tab"
+                            data-filter="cases">
+                            Cases
+                        </button>
+
+                        <button
+                            class="activity-tab"
+                            data-filter="evidence">
+                            Evidence
+                        </button>
+
+                        <button
+                            class="activity-tab"
+                            data-filter="reconstruction">
+                            Reconstruction
+                        </button>
+
+                        <button
+                            class="activity-tab"
+                            data-filter="reports">
+                            Reports
+                        </button>
+
+                    </div>
+
+                    <span id="activityCount" class="activity-count">
+                        10 events
+                    </span>
+
+                </div>
+
+
+                <!-- TIMELINE -->
+                <div class="activity-timeline" id="activityTimeline">
+
+
+                    <!-- EVENT 1 -->
+                    <div
+                        class="activity-event"
+                        data-category="evidence"
+                        data-search="AI detected handgun evidence CASE-2026-0024 warehouse break-in Johannesburg">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon evidence-icon">
+                            ◇
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        EVIDENCE
+                                    </span>
+
+                                    <h4>
+                                        AI detected new evidence
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    12 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Handgun detected with
+                                <strong>96.4% confidence</strong>
+                                in CASE-2026-0024.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>EV-00142</span>
+                                <span>CASE-2026-0024</span>
+                                <span>AI Detection</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 2 -->
+                    <div
+                        class="activity-event"
+                        data-category="reconstruction"
+                        data-search="reconstruction completed warehouse break-in Johannesburg CASE-2026-0024">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon reconstruction-icon">
+                            ◈
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        RECONSTRUCTION
+                                    </span>
+
+                                    <h4>
+                                        3D reconstruction completed
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    28 min ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Photogrammetric reconstruction completed for
+                                CASE-2026-0024 with
+                                <strong>98.2% processing quality</strong>.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>CASE-2026-0024</span>
+                                <span>16.8M Points</span>
+                                <span>Processed</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 3 -->
+                    <div
+                        class="activity-event"
+                        data-category="cases"
+                        data-search="case uploaded warehouse break-in Johannesburg CASE-2026-0024">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon case-icon">
+                            ▣
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        CASE
+                                    </span>
+
+                                    <h4>
+                                        New case uploaded
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    1 hr ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Crime scene media uploaded for
+                                <strong>Warehouse Break-In</strong>
+                                in Johannesburg.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>CASE-2026-0024</span>
+                                <span>Johannesburg</span>
+                                <span>12 Evidence Items</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 4 -->
+                    <div
+                        class="activity-event"
+                        data-category="evidence"
+                        data-search="blood pattern detected AI CASE-2026-0024 Johannesburg">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon evidence-icon">
+                            ◇
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        EVIDENCE
+                                    </span>
+
+                                    <h4>
+                                        Blood pattern identified
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    2 hrs ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                AI analysis identified a potential blood pattern
+                                with <strong>91.8% confidence</strong>.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>EV-00141</span>
+                                <span>CASE-2026-0024</span>
+                                <span>AI Detection</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 5 -->
+                    <div
+                        class="activity-event"
+                        data-category="reports"
+                        data-search="report generated reconstruction report warehouse break-in CASE-2026-0024">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon report-icon">
+                            ▤
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        REPORT
+                                    </span>
+
+                                    <h4>
+                                        Reconstruction report generated
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    3 hrs ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Investigation reconstruction report generated
+                                for CASE-2026-0024.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>RPT-2026-0028</span>
+                                <span>CASE-2026-0024</span>
+                                <span>Generated</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 6 -->
+                    <div
+                        class="activity-event"
+                        data-category="evidence"
+                        data-search="fingerprint manually added CASE-2026-0023 Pretoria">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon evidence-icon">
+                            ◇
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        EVIDENCE
+                                    </span>
+
+                                    <h4>
+                                        Fingerprint manually added
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    5 hrs ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Investigator manually added a fingerprint
+                                record to the homicide investigation.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>EV-00139</span>
+                                <span>CASE-2026-0023</span>
+                                <span>Manual</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 7 -->
+                    <div
+                        class="activity-event"
+                        data-category="cases"
+                        data-search="case updated homicide investigation Pretoria CASE-2026-0023">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon case-icon">
+                            ▣
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        CASE
+                                    </span>
+
+                                    <h4>
+                                        Case status updated
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    Yesterday
+                                </span>
+
+                            </div>
+
+                            <p>
+                                CASE-2026-0023 was marked as
+                                <strong>Completed</strong>.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>CASE-2026-0023</span>
+                                <span>Pretoria</span>
+                                <span>Completed</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 8 -->
+                    <div
+                        class="activity-event"
+                        data-category="reconstruction"
+                        data-search="3D scene reconstruction processing residential burglary Cape Town CASE-2026-0022">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon reconstruction-icon">
+                            ◈
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        RECONSTRUCTION
+                                    </span>
+
+                                    <h4>
+                                        3D scene processing started
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    Yesterday
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Photogrammetric reconstruction started for
+                                CASE-2026-0022.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>CASE-2026-0022</span>
+                                <span>Cape Town</span>
+                                <span>Processing</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 9 -->
+                    <div
+                        class="activity-event"
+                        data-category="reports"
+                        data-search="evidence summary exported homicide investigation CASE-2026-0023 Pretoria">
+
+                        <div class="timeline-line"></div>
+
+                        <div class="activity-icon report-icon">
+                            ▤
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        REPORT
+                                    </span>
+
+                                    <h4>
+                                        Evidence summary exported
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    2 days ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                Evidence summary exported for
+                                CASE-2026-0023.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>RPT-2026-0027</span>
+                                <span>CASE-2026-0023</span>
+                                <span>Exported</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- EVENT 10 -->
+                    <div
+                        class="activity-event"
+                        data-category="cases"
+                        data-search="vehicle crime scene case created Durban CASE-2026-0021">
+
+                        <div class="activity-icon case-icon">
+                            ▣
+                        </div>
+
+                        <div class="activity-event-content">
+
+                            <div class="activity-event-top">
+
+                                <div>
+                                    <span class="event-category">
+                                        CASE
+                                    </span>
+
+                                    <h4>
+                                        Investigation case created
+                                    </h4>
+                                </div>
+
+                                <span class="event-time">
+                                    3 days ago
+                                </span>
+
+                            </div>
+
+                            <p>
+                                New investigation created for a
+                                <strong>Vehicle Crime Scene</strong>
+                                in Durban.
+                            </p>
+
+                            <div class="event-meta">
+                                <span>CASE-2026-0021</span>
+                                <span>Durban</span>
+                                <span>Completed</span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+                <!-- NO RESULTS -->
+                <div id="noActivity" class="no-activity">
+                    <div class="no-activity-icon">⌕</div>
+
+                    <h4>No activity found</h4>
+
+                    <p>
+                        Try changing your search or activity filter.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+<script src="js/activity.js"></script>
+
+</body>
+</html>

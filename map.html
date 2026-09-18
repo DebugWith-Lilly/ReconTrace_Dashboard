@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>RECONTRACE | Map</title>
+
+    <!-- GLOBAL RECONTRACE STYLES -->
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <!-- MAP PAGE STYLES -->
+    <link
+        rel="stylesheet"
+        href="css/map.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="dashboard-page">
+
+
+        <!-- =================================================
+             SIDEBAR
+             ================================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <h1>
+                    RECONTRACE
+                </h1>
+
+                <p>
+                    FORENSIC INTELLIGENCE
+                </p>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a
+                    href="dashboard.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⌂</span>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="cases.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▣</span>
+                    Cases
+                </a>
+
+
+                <a
+                    href="scene-viewer.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◇</span>
+                    3D Scene Viewer
+                </a>
+
+
+                <a
+                    href="evidence.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◈</span>
+                    Evidence
+                </a>
+
+
+                <a
+                    href="reports.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">▤</span>
+                    Reports
+                </a>
+
+
+                <a
+                    href="map.html"
+                    class="nav-item active"
+                >
+                    <span class="nav-icon">⌖</span>
+                    Map
+                </a>
+
+
+                <a
+                    href="activity.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">◷</span>
+                    Activity
+                </a>
+
+
+                <a
+                    href="settings.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">⚙</span>
+                    Settings
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a
+                    href="index.html"
+                    class="nav-item"
+                >
+                    <span class="nav-icon">↪</span>
+                    Sign Out
+                </a>
+
+            </div>
+
+        </aside>
+
+
+
+        <!-- =================================================
+             MAIN CONTENT
+             ================================================= -->
+
+        <main class="dashboard-main">
+
+
+            <!-- =================================================
+                 PAGE HEADER
+                 ================================================= -->
+
+            <header class="dashboard-header">
+
+                <div class="header-title">
+
+                    <p class="page-label">
+                        INVESTIGATION LOCATIONS
+                    </p>
+
+                    <h2>
+                        Crime Scene Map
+                    </h2>
+
+                    <p>
+                        View and monitor investigation locations across South Africa.
+                    </p>
+
+                </div>
+
+
+                <div class="header-actions">
+
+
+                    <!-- SEARCH -->
+
+                    <div class="search-box">
+
+                        <span>
+                            ⌕
+                        </span>
+
+                        <input
+                            type="text"
+                            id="mapSearch"
+                            placeholder="Search cases or locations..."
+                        >
+
+                    </div>
+
+
+                    <!-- NOTIFICATIONS -->
+
+                    <button
+                        class="notification-btn"
+                        type="button"
+                        aria-label="Notifications"
+                    >
+                        ◌
+                    </button>
+
+
+                    <!-- PROFILE -->
+
+                    <div class="profile-circle">
+                        I
+                    </div>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- =================================================
+                 MAP PAGE CONTENT
+                 ================================================= -->
+
+            <section class="map-page-content">
+
+
+                <!-- =================================================
+                     MAP PAGE TITLE + LEGEND
+                     ================================================= -->
+
+                <div class="map-toolbar">
+
+
+                    <div>
+
+                        <p class="card-label">
+                            CASE LOCATIONS
+                        </p>
+
+                        <h3>
+                            Investigation Overview
+                        </h3>
+
+                    </div>
+
+
+                    <!-- STATUS LEGEND -->
+
+                    <div class="map-legend">
+
+
+                        <span class="legend-item">
+
+                            <i class="legend-dot active-dot"></i>
+
+                            Active
+
+                        </span>
+
+
+                        <span class="legend-item">
+
+                            <i class="legend-dot completed-dot"></i>
+
+                            Completed
+
+                        </span>
+
+
+                        <span class="legend-item">
+
+                            <i class="legend-dot processing-dot"></i>
+
+                            Processing
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     MAP + CASE LOCATIONS
+                     ================================================= -->
+
+                <div class="map-layout">
+
+
+                    <!-- =================================================
+                         MAP CARD
+                         ================================================= -->
+
+                    <div class="map-card">
+
+
+                        <!-- MAP HEADER -->
+
+                        <div class="map-header">
+
+                            <div>
+
+                                <span class="map-status">
+                                    LIVE CASE OVERVIEW
+                                </span>
+
+                                <h3>
+                                    South Africa
+                                </h3>
+
+                                <p>
+                                    Investigation locations
+                                </p>
+
+                            </div>
+
+
+                            <!-- ZOOM -->
+
+                            <div class="map-controls">
+
+                                <button
+                                    id="zoomOutBtn"
+                                    class="map-control-btn"
+                                    type="button"
+                                    aria-label="Zoom out"
+                                >
+                                    −
+                                </button>
+
+
+                                <button
+                                    id="zoomInBtn"
+                                    class="map-control-btn"
+                                    type="button"
+                                    aria-label="Zoom in"
+                                >
+                                    +
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             MAP AREA
+                             ================================================= -->
+
+                        <div
+                            class="mock-map"
+                            id="mockMap"
+                        >
+
+
+                            <!-- GRID -->
+
+                            <div class="map-grid"></div>
+
+
+
+                            <!-- SOUTH AFRICA -->
+
+                            <div class="south-africa-shape">
+
+                                <div class="country-label">
+                                    SOUTH AFRICA
+                                </div>
+
+                            </div>
+
+
+
+                            <!-- =================================================
+                                 CASE MARKERS
+                                 ================================================= -->
+
+
+                            <!-- JOHANNESBURG -->
+
+                            <button
+                                class="case-marker active-marker"
+                                style="left: 72%; top: 39%;"
+                                data-case="CASE-2026-0024"
+                                data-location="Johannesburg"
+                                data-status="active"
+                                type="button"
+                                aria-label="CASE-2026-0024 Johannesburg"
+                            >
+
+                                <span>
+                                    1
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- PRETORIA -->
+
+                            <button
+                                class="case-marker completed-marker"
+                                style="left: 65%; top: 52%;"
+                                data-case="CASE-2026-0023"
+                                data-location="Pretoria"
+                                data-status="completed"
+                                type="button"
+                                aria-label="CASE-2026-0023 Pretoria"
+                            >
+
+                                <span>
+                                    2
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- CAPE TOWN -->
+
+                            <button
+                                class="case-marker active-marker"
+                                style="left: 28%; top: 75%;"
+                                data-case="CASE-2026-0022"
+                                data-location="Cape Town"
+                                data-status="active"
+                                type="button"
+                                aria-label="CASE-2026-0022 Cape Town"
+                            >
+
+                                <span>
+                                    3
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- DURBAN -->
+
+                            <button
+                                class="case-marker completed-marker"
+                                style="left: 78%; top: 72%;"
+                                data-case="CASE-2026-0021"
+                                data-location="Durban"
+                                data-status="completed"
+                                type="button"
+                                aria-label="CASE-2026-0021 Durban"
+                            >
+
+                                <span>
+                                    4
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- SOWETO -->
+
+                            <button
+                                class="case-marker processing-marker"
+                                style="left: 55%; top: 57%;"
+                                data-case="CASE-2026-0020"
+                                data-location="Soweto"
+                                data-status="processing"
+                                type="button"
+                                aria-label="CASE-2026-0020 Soweto"
+                            >
+
+                                <span>
+                                    5
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- =================================================
+                                 MAP INFORMATION
+                                 ================================================= -->
+
+                            <div class="map-info-overlay">
+
+                                <span>
+                                    INVESTIGATION COVERAGE
+                                </span>
+
+                                <strong>
+                                    5 Case Locations
+                                </strong>
+
+                                <small>
+                                    Data updated just now
+                                </small>
+
+                            </div>
+
+
+
+                            <!-- =================================================
+                                 MAP POPUP
+                                 ================================================= -->
+
+                            <div
+                                class="map-popup"
+                                id="mapPopup"
+                            >
+
+
+                                <button
+                                    class="popup-close"
+                                    id="closePopupBtn"
+                                    type="button"
+                                    aria-label="Close case popup"
+                                >
+                                    ×
+                                </button>
+
+
+                                <span class="popup-label">
+                                    CASE LOCATION
+                                </span>
+
+
+                                <h4 id="popupCase">
+                                    CASE-2026-0024
+                                </h4>
+
+
+                                <p id="popupLocation">
+                                    Johannesburg
+                                </p>
+
+
+                                <span
+                                    class="popup-status"
+                                    id="popupStatus"
+                                >
+                                    In Progress
+                                </span>
+
+
+                                <button
+                                    class="popup-view-btn"
+                                    id="popupViewBtn"
+                                    type="button"
+                                >
+                                    View Case
+                                </button>
+
+                            </div>
+
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             MAP FOOTER
+                             ================================================= -->
+
+                        <div class="map-footer">
+
+                            <span>
+                                5 investigation locations
+                            </span>
+
+                            <span>
+                                RECONTRACE GEO INTELLIGENCE
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         CASE LOCATIONS PANEL
+                         ================================================= -->
+
+                    <aside class="map-case-panel">
+
+
+                        <!-- PANEL HEADER -->
+
+                        <div class="case-panel-header">
+
+                            <div>
+
+                                <p class="card-label">
+                                    LOCATIONS
+                                </p>
+
+                                <h3>
+                                    Case Locations
+                                </h3>
+
+                            </div>
+
+
+                            <span
+                                class="case-location-count"
+                                id="caseLocationCount"
+                            >
+                                5
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             STATUS TABS
+                             ================================================= -->
+
+                        <div class="case-location-tabs">
+
+
+                            <button
+                                class="case-location-tab active"
+                                data-filter="all"
+                                type="button"
+                            >
+                                All
+                            </button>
+
+
+                            <button
+                                class="case-location-tab"
+                                data-filter="active"
+                                type="button"
+                            >
+                                Active
+                            </button>
+
+
+                            <button
+                                class="case-location-tab"
+                                data-filter="completed"
+                                type="button"
+                            >
+                                Completed
+                            </button>
+
+
+                            <button
+                                class="case-location-tab"
+                                data-filter="processing"
+                                type="button"
+                            >
+                                Processing
+                            </button>
+
+                        </div>
+
+
+
+                        <!-- =================================================
+                             CASE LIST
+                             ================================================= -->
+
+                        <div
+                            class="map-case-list"
+                            id="mapCaseList"
+                        >
+
+
+                            <!-- CASE 1 -->
+
+                            <button
+                                class="map-case-item"
+                                data-case="CASE-2026-0024"
+                                data-location="Johannesburg"
+                                data-status="active"
+                                type="button"
+                            >
+
+                                <span class="case-location-dot active-dot"></span>
+
+
+                                <div class="case-location-text">
+
+                                    <strong>
+                                        CASE-2026-0024
+                                    </strong>
+
+                                    <p>
+                                        Warehouse Break-In
+                                    </p>
+
+                                    <small>
+                                        Johannesburg
+                                    </small>
+
+                                </div>
+
+
+                                <span class="case-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- CASE 2 -->
+
+                            <button
+                                class="map-case-item"
+                                data-case="CASE-2026-0023"
+                                data-location="Pretoria"
+                                data-status="completed"
+                                type="button"
+                            >
+
+                                <span class="case-location-dot completed-dot"></span>
+
+
+                                <div class="case-location-text">
+
+                                    <strong>
+                                        CASE-2026-0023
+                                    </strong>
+
+                                    <p>
+                                        Homicide Investigation
+                                    </p>
+
+                                    <small>
+                                        Pretoria
+                                    </small>
+
+                                </div>
+
+
+                                <span class="case-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- CASE 3 -->
+
+                            <button
+                                class="map-case-item"
+                                data-case="CASE-2026-0022"
+                                data-location="Cape Town"
+                                data-status="active"
+                                type="button"
+                            >
+
+                                <span class="case-location-dot active-dot"></span>
+
+
+                                <div class="case-location-text">
+
+                                    <strong>
+                                        CASE-2026-0022
+                                    </strong>
+
+                                    <p>
+                                        Residential Burglary
+                                    </p>
+
+                                    <small>
+                                        Cape Town
+                                    </small>
+
+                                </div>
+
+
+                                <span class="case-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- CASE 4 -->
+
+                            <button
+                                class="map-case-item"
+                                data-case="CASE-2026-0021"
+                                data-location="Durban"
+                                data-status="completed"
+                                type="button"
+                            >
+
+                                <span class="case-location-dot completed-dot"></span>
+
+
+                                <div class="case-location-text">
+
+                                    <strong>
+                                        CASE-2026-0021
+                                    </strong>
+
+                                    <p>
+                                        Vehicle Crime Scene
+                                    </p>
+
+                                    <small>
+                                        Durban
+                                    </small>
+
+                                </div>
+
+
+                                <span class="case-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+
+                            <!-- CASE 5 -->
+
+                            <button
+                                class="map-case-item"
+                                data-case="CASE-2026-0020"
+                                data-location="Soweto"
+                                data-status="processing"
+                                type="button"
+                            >
+
+                                <span class="case-location-dot processing-dot"></span>
+
+
+                                <div class="case-location-text">
+
+                                    <strong>
+                                        CASE-2026-0020
+                                    </strong>
+
+                                    <p>
+                                        Assault Investigation
+                                    </p>
+
+                                    <small>
+                                        Soweto
+                                    </small>
+
+                                </div>
+
+
+                                <span class="case-arrow">
+                                    →
+                                </span>
+
+                            </button>
+
+
+                        </div>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <!-- =================================================
+         MAP JAVASCRIPT
+         ================================================= -->
+
+    <script src="js/map.js"></script>
+
+</body>
+
+</html>
