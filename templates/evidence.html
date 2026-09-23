@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Evidence | RECONTRACE</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- =========================================
+         SIDEBAR
+         ========================================= -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <h1>RECONTRACE</h1>
+            <p>FORENSIC INTELLIGENCE</p>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('dashboard') }}" class="nav-item">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('cases') }}" class="nav-item">
+                <span>◫</span>
+                Cases
+            </a>
+
+            <a href="{{ url_for('scene_viewer') }}" class="nav-item">
+                <span>◇</span>
+                3D Scene Viewer
+            </a>
+
+            <a href="{{ url_for('evidence') }}" class="nav-item active">
+                <span>◈</span>
+                Evidence
+            </a>
+
+            <a href="{{ url_for('reports') }}" class="nav-item">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('map') }}" class="nav-item">
+                <span>⌖</span>
+                Map
+            </a>
+
+            <a href="{{ url_for('activity') }}" class="nav-item">
+                <span>◷</span>
+                Activity
+            </a>
+
+            <a href="#" class="nav-item">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+
+        <a href="{{ url_for('home') }}" class="sign-out">
+            <span>↪</span>
+            Sign Out
+        </a>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN CONTENT
+         ========================================= -->
+
+    <main class="dashboard-main">
+
+
+        <!-- =========================================
+             HEADER
+             ========================================= -->
+
+        <header class="dashboard-header">
+
+            <div>
+
+                <p class="section-label">
+                    EVIDENCE MANAGEMENT
+                </p>
+
+                <h2>
+                    Evidence
+                </h2>
+
+                <p class="header-subtitle">
+                    Review and manage evidence detected from crime scenes.
+                </p>
+
+            </div>
+
+
+            <div class="header-actions">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="evidenceSearch"
+                        placeholder="Search evidence..."
+                    >
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="notification-btn"
+                >
+                    ♢
+                </button>
+
+
+                <div class="profile-circle">
+                    I
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             EVIDENCE STATISTICS
+             ========================================= -->
+
+        <section class="evidence-stats">
+
+
+            <!-- TOTAL -->
+
+            <div class="evidence-stat-card">
+
+                <div class="stat-icon">
+                    ◈
+                </div>
+
+                <div>
+
+                    <p>
+                        Total Evidence
+                    </p>
+
+                    <h3>
+                        142
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- AI -->
+
+            <div class="evidence-stat-card">
+
+                <div class="stat-icon ai-icon">
+                    ✦
+                </div>
+
+                <div>
+
+                    <p>
+                        AI Detected
+                    </p>
+
+                    <h3>
+                        96
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- MANUAL -->
+
+            <div class="evidence-stat-card">
+
+                <div class="stat-icon manual-icon">
+                    +
+                </div>
+
+                <div>
+
+                    <p>
+                        Manually Added
+                    </p>
+
+                    <h3>
+                        46
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- VERIFIED -->
+
+            <div class="evidence-stat-card">
+
+                <div class="stat-icon verified-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <p>
+                        Verified
+                    </p>
+
+                    <h3>
+                        118
+                    </h3>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             FILTER TOOLBAR
+             ========================================= -->
+
+        <section class="evidence-toolbar">
+
+
+            <div class="evidence-filters">
+
+                <button
+                    type="button"
+                    class="filter-btn active"
+                >
+                    All Evidence
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                >
+                    AI Detected
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                >
+                    Manual
+                </button>
+
+
+                <button
+                    type="button"
+                    class="filter-btn"
+                >
+                    Verified
+                </button>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="add-evidence-btn"
+            >
+                + Add Evidence
+            </button>
+
+        </section>
+
+
+
+        <!-- =========================================
+             EVIDENCE TABLE CARD
+             ========================================= -->
+
+        <section class="evidence-card">
+
+
+            <!-- CARD HEADER -->
+
+            <div class="evidence-card-header">
+
+                <div>
+
+                    <h3>
+                        Evidence Items
+                    </h3>
+
+                    <p>
+                        Evidence collected across active investigations
+                    </p>
+
+                </div>
+
+
+                <select class="evidence-sort">
+
+                    <option>
+                        Newest First
+                    </option>
+
+                    <option>
+                        Oldest First
+                    </option>
+
+                    <option>
+                        Highest Confidence
+                    </option>
+
+                    <option>
+                        Lowest Confidence
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <!-- =========================================
+                 TABLE
+                 ========================================= -->
+
+            <div class="evidence-table-wrapper">
+
+                <table class="evidence-table">
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Evidence
+                            </th>
+
+                            <th>
+                                Type
+                            </th>
+
+                            <th>
+                                Case
+                            </th>
+
+                            <th>
+                                Source
+                            </th>
+
+                            <th>
+                                Confidence
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th></th>
+
+                        </tr>
+
+                    </thead>
+
+
+
+                    <tbody>
+
+
+                        <!-- =================================
+                             EVIDENCE 1
+                             ================================= -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="evidence-name">
+
+                                    <div class="evidence-thumbnail weapon">
+                                        🔫
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            EV-00142
+                                        </strong>
+
+                                        <span>
+                                            Handgun
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Weapon
+                            </td>
+
+
+                            <td>
+
+                                <span class="case-id">
+                                    CASE-2026-0024
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="source-badge ai">
+                                    ✦ AI Detected
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    96.4%
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge verified">
+                                    Verified
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="view-btn"
+                                >
+                                    View
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             EVIDENCE 2
+                             ================================= -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="evidence-name">
+
+                                    <div class="evidence-thumbnail blood">
+                                        🩸
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            EV-00141
+                                        </strong>
+
+                                        <span>
+                                            Blood Pattern
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Biological
+                            </td>
+
+
+                            <td>
+
+                                <span class="case-id">
+                                    CASE-2026-0024
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="source-badge ai">
+                                    ✦ AI Detected
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    91.8%
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge verified">
+                                    Verified
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="view-btn"
+                                >
+                                    View
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             EVIDENCE 3
+                             ================================= -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="evidence-name">
+
+                                    <div class="evidence-thumbnail footprint">
+                                        👟
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            EV-00140
+                                        </strong>
+
+                                        <span>
+                                            Footwear Impression
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Footwear
+                            </td>
+
+
+                            <td>
+
+                                <span class="case-id">
+                                    CASE-2026-0023
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="source-badge ai">
+                                    ✦ AI Detected
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    88.7%
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge pending">
+                                    Pending
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="view-btn"
+                                >
+                                    View
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             EVIDENCE 4
+                             ================================= -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="evidence-name">
+
+                                    <div class="evidence-thumbnail fingerprint">
+                                        ◉
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            EV-00139
+                                        </strong>
+
+                                        <span>
+                                            Fingerprint
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Fingerprint
+                            </td>
+
+
+                            <td>
+
+                                <span class="case-id">
+                                    CASE-2026-0023
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="source-badge manual">
+                                    Manual
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    —
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge verified">
+                                    Verified
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="view-btn"
+                                >
+                                    View
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+
+                        <!-- =================================
+                             EVIDENCE 5
+                             ================================= -->
+
+                        <tr>
+
+                            <td>
+
+                                <div class="evidence-name">
+
+                                    <div class="evidence-thumbnail object">
+                                        ◇
+                                    </div>
+
+                                    <div>
+
+                                        <strong>
+                                            EV-00138
+                                        </strong>
+
+                                        <span>
+                                            Broken Glass
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </td>
+
+
+                            <td>
+                                Object
+                            </td>
+
+
+                            <td>
+
+                                <span class="case-id">
+                                    CASE-2026-0022
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="source-badge ai">
+                                    ✦ AI Detected
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <strong>
+                                    94.2%
+                                </strong>
+
+                            </td>
+
+
+                            <td>
+
+                                <span class="status-badge verified">
+                                    Verified
+                                </span>
+
+                            </td>
+
+
+                            <td>
+
+                                <button
+                                    type="button"
+                                    class="view-btn"
+                                >
+                                    View
+                                </button>
+
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================================
+             ADD EVIDENCE MODAL
+             ========================================= -->
+
+        <div
+            class="evidence-modal"
+            id="addEvidenceModal"
+        >
+
+            <div class="evidence-modal-content">
+
+
+                <!-- MODAL HEADER -->
+
+                <div class="modal-header">
+
+                    <div>
+
+                        <p class="section-label">
+                            EVIDENCE MANAGEMENT
+                        </p>
+
+                        <h2>
+                            Add Evidence
+                        </h2>
+
+                        <p>
+                            Register a new evidence item to an investigation.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="modal-close"
+                        id="closeEvidenceModal"
+                    >
+                        ×
+                    </button>
+
+                </div>
+
+
+
+                <!-- FORM -->
+
+                <form id="addEvidenceForm">
+
+
+                    <!-- ROW 1 -->
+
+                    <div class="form-row">
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceID">
+                                Evidence ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newEvidenceID"
+                                placeholder="EV-00143"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceName">
+                                Evidence Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newEvidenceName"
+                                placeholder="e.g. Glass Fragment"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ROW 2 -->
+
+                    <div class="form-row">
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceType">
+                                Evidence Type
+                            </label>
+
+                            <select
+                                id="newEvidenceType"
+                                required
+                            >
+
+                                <option value="">
+                                    Select type
+                                </option>
+
+                                <option>
+                                    Weapon
+                                </option>
+
+                                <option>
+                                    Biological
+                                </option>
+
+                                <option>
+                                    Fingerprint
+                                </option>
+
+                                <option>
+                                    Footwear
+                                </option>
+
+                                <option>
+                                    Object
+                                </option>
+
+                                <option>
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceCase">
+                                Case ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="newEvidenceCase"
+                                placeholder="CASE-2026-0024"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ROW 3 -->
+
+                    <div class="form-row">
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceSource">
+                                Source
+                            </label>
+
+                            <select id="newEvidenceSource">
+
+                                <option value="manual">
+                                    Manual
+                                </option>
+
+                                <option value="ai">
+                                    AI Detected
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="modal-input">
+
+                            <label for="newEvidenceConfidence">
+                                Confidence
+                            </label>
+
+                            <input
+                                type="number"
+                                id="newEvidenceConfidence"
+                                placeholder="95.5"
+                                min="0"
+                                max="100"
+                                step="0.1"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- DESCRIPTION -->
+
+                    <div class="modal-input">
+
+                        <label for="newEvidenceDescription">
+                            Description
+                        </label>
+
+                        <textarea
+                            id="newEvidenceDescription"
+                            placeholder="Describe the evidence..."
+                            rows="4"
+                        ></textarea>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div class="modal-actions">
+
+                        <button
+                            type="button"
+                            class="cancel-btn"
+                            id="cancelEvidenceBtn"
+                        >
+                            Cancel
+                        </button>
+
+
+                        <button
+                            type="submit"
+                            class="save-evidence-btn"
+                        >
+                            Add Evidence
+                        </button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='js/evidence.js') }}"></script>
+
+</body>
+</html>
